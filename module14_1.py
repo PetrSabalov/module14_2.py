@@ -28,5 +28,11 @@ balance INTEGER NOT NULL
   #      print(user[i], end='')
     #    print()
 #cursor.execute('DELETE FROM Users WHERE id=6')
+cursor.execute('SELECT COUNT(*) FROM Users')
+total1 = cursor.fetchone()[0]
+cursor.execute('SELECT SUM(balance) FROM Users')
+total2 = cursor.fetchone()[0]
+print(total2/total1)
+
 connection.commit()
 connection.close()
